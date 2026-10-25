@@ -1,0 +1,97 @@
+{
+  "enable_bilibili": {
+    "description": "启用哔哩哔哩解析",
+    "type": "bool",
+    "default": true
+  },
+  "enable_douyin": {
+    "description": "启用抖音解析",
+    "type": "bool",
+    "default": true
+  },
+  "enable_kuaishou": {
+    "description": "启用快手解析",
+    "type": "bool",
+    "default": true
+  },
+  "enable_xiaohongshu": {
+    "description": "启用小红书解析（图文 + 视频）",
+    "type": "bool",
+    "default": true
+  },
+  "xiaohongshu_cookie": {
+    "description": "小红书 Cookie（用插件目录下的 小红书登录.py 抓取后会自动填到这里）",
+    "type": "string",
+    "default": ""
+  },
+  "enable_youtube": {
+    "description": "启用 YouTube 解析（普通视频 + Shorts）",
+    "type": "bool",
+    "default": true
+  },
+  "youtube_proxy": {
+    "description": "YouTube 代理地址（v2rayN 默认 http://127.0.0.1:10808）",
+    "type": "string",
+    "default": "http://127.0.0.1:10808"
+  },
+  "bilibili_use_proxy": {
+    "description": "B 站走代理（本机 IP 报 412 风控时打开；代理不可用会自动回退直连）",
+    "type": "bool",
+    "default": false
+  },
+  "bilibili_proxy": {
+    "description": "B 站代理地址（v2rayN 默认 http://127.0.0.1:10808）",
+    "type": "string",
+    "default": "http://127.0.0.1:10808"
+  },
+  "cache_dir": {
+    "description": "视频缓存目录（留空则用 C:\\Users\\USER221806\\AppData\\Local\\nonebot2\\Cache\\nonebot_plugin_resolver2）",
+    "type": "string",
+    "default": ""
+  },
+  "auto_rotate_landscape": {
+    "description": "自动检测横竖屏：横屏视频逆时针旋转 90 度后发送（竖屏原样发送）",
+    "type": "bool",
+    "default": true
+  },
+  "enable_private": {
+    "description": "私聊消息也解析",
+    "type": "bool",
+    "default": true
+  },
+  "enable_group": {
+    "description": "群聊消息也解析",
+    "type": "bool",
+    "default": true
+  },
+  "send_title": {
+    "description": "发送视频前附上标题/作者信息",
+    "type": "bool",
+    "default": false
+  },
+  "max_size_mb": {
+    "description": "允许下载的最大文件体积 (MB)",
+    "type": "int",
+    "default": 10000
+  },
+  "video_duration_maximum": {
+    "description": "视频最大时长 (秒)，超过则不下载",
+    "type": "int",
+    "default": 86400
+  },
+  "douyin_max_upload_size": {
+    "description": "抖音视频超过该体积 (MB) 时压缩到 360p 再发送",
+    "type": "int",
+    "default": 45
+  },
+  "douyin_cookie": {
+    "description": "抖音 Cookie（可留空；未登录时部分作品会返回受限提示）",
+    "type": "string",
+    "default": ""
+  },
+  "bilibili_cookie": {
+    "description": "哔哩哔哩 Cookie（用插件目录下的 B站登录.bat 扫码登录后会自动填到这里，无需手抄）",
+    "type": "string",
+    "default": ""
+  }
+}

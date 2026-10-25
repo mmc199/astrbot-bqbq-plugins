@@ -1,0 +1,6 @@
+name: "astrbot_plugin_resolver2"
+display_name: "链接分享自动解析"
+desc: "自动解析 bilibili / 抖音 / 快手 链接并下载发送视频。横竖屏自动检测，竖屏直接发送。"
+version: "1.0.0"
+author: "fllesser (ported to AstrBot)"
+repo: "https://github.com/fllesser/nonebot-plugin-resolver2"

@@ -1,0 +1,50 @@
+{
+    "enabled": {
+        "description": "启用表情包收集",
+        "hint": "总开关。关闭后不再自动下载和转存任何图片。",
+        "type": "bool",
+        "default": true
+    },
+    "backend_url": {
+        "description": "后端地址",
+        "hint": "bqbq_v2 的 FastAPI 地址，默认 http://127.0.0.1:8000",
+        "type": "string",
+        "default": "http://127.0.0.1:8000"
+    },
+    "collect_normal": {
+        "description": "收集单张图片",
+        "hint": "私聊直接发图即可（免触发词）；群里需要 @机器人 并发送「bqbq」。注意：带参数的「bqbq 关键词」是搜索，不会触发收集。",
+        "type": "bool",
+        "default": true
+    },
+    "collect_merged": {
+        "description": "收集合并转发（聊天记录）的图片",
+        "hint": "别人转发的「XX的聊天记录」里包含的所有图片，会批量转存。",
+        "type": "bool",
+        "default": true
+    },
+    "collect_reply": {
+        "description": "收集被引用内容里的图片",
+        "hint": "引用一张图片、或引用一条合并转发后再发「bqbq」，会把被引用的内容也收下来。（注意：引用图片发「bqbq」是查看该图标签，不是收集。）",
+        "type": "bool",
+        "default": true
+    },
+    "reply_result": {
+        "description": "处理完后回复收集结果",
+        "hint": "例如「表情包收集：新增 5，已有 3，失败 2」。关闭则完全静默。",
+        "type": "bool",
+        "default": true
+    },
+    "private_whitelist_enabled": {
+        "description": "启用私聊白名单",
+        "hint": "开启后，只有白名单里的用户私聊才能触发收集，其他人私聊会被忽略。群里不受影响。",
+        "type": "bool",
+        "default": false
+    },
+    "private_whitelist": {
+        "description": "私聊白名单（openid）",
+        "hint": "填 openid，不是 QQ 号！官方机器人拿不到 QQ 号，event.get_sender_id() 返回的就是 openid（32 位十六进制，如 <32位openid>）。多个用逗号或换行分隔。日志里会打印「私聊非白名单用户，忽略: xxx」方便你获取自己的 openid。",
+        "type": "list",
+        "default": []
+    }
+}

@@ -1,0 +1,5 @@
+name: "astrbot_plugin_bqbq_probe_single"
+display_name: "BQBQ 单图诊断"
+desc: "抓取普通消息里 Image 组件的真实 url/file/path 字段，用于定位 exc_UnsupportedProtocol。只读诊断。"
+version: "0.1.0"
+author: "bqbq_v2"

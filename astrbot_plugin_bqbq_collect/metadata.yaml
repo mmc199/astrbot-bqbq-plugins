@@ -1,0 +1,5 @@
+name: "astrbot_plugin_bqbq_collect"
+display_name: "BQBQ 表情包收集"
+desc: "自动收集群消息与合并转发（聊天记录）里的表情包，转存到 bqbq_v2 后端（自动分片、生成缩略图、同步 R2/CDN）。"
+version: "0.1.0"
+author: "bqbq_v2"
