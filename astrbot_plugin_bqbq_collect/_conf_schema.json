@@ -11,6 +11,12 @@
         "type": "string",
         "default": "http://127.0.0.1:8000"
     },
+    "bot_client_id": {
+        "description": "bot 凭证（必填）",
+        "hint": "后端的写接口有鉴权，缺这个值上传图片、修改标签、购物车取回都会返回 401「未登录：缺少 client_id」。格式建议 bot_astrbot_ + 随机字符，并要在后端 auth_granted_clients 表登记同一条（kind='bot'）。生成：python -c \"import secrets; print('bot_astrbot_' + ''.join(secrets.choice('abcdefghijklmnopqrstuvwxyz23456789') for _ in range(13)))\"",
+        "type": "string",
+        "default": ""
+    },
     "collect_normal": {
         "description": "收集单张图片",
         "hint": "私聊直接发图即可（免触发词）；群里需要 @机器人 并发送「bqbq」。注意：带参数的「bqbq 关键词」是搜索，不会触发收集。",

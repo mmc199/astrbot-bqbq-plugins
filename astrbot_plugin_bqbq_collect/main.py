@@ -294,12 +294,24 @@ class BqbqCollectPlugin(Star):
         super().__init__(context)
         cfg = config or {}
         self.backend = str(cfg.get("backend_url") or DEFAULT_BACKEND).rstrip("/")
-        # bot 自身的凭证，供购物车取回等需要鉴权的调用使用。
+        # bot 自身的凭证，供上传、改标签、购物车取回等需要鉴权的调用使用。
         #
         # 【不写默认值】这是真实可用的凭证，仓库是公开的不能硬编码。
-        # 请在自己的 config 里填 bot_client_id，并在后端
+        # 必须在 config 里填 bot_client_id，并在后端
         # auth_granted_clients 表里登记同一条（kind='bot'）。
-        self.bot_client_id = str(cfg.get("bot_client_id") or "")
+        #
+        # 【为什么要在启动时就吼一声】留空的话不会立刻出错，
+        # 而是每次上传/改标签都被后端以 401「未登录：缺少 client_id」
+        # 拒绝 —— 从日志里完全看不出是"配置忘了填"。
+        # 这里在加载时就打印明确提示，省得以后排查半天。
+        self.bot_client_id = str(cfg.get("bot_client_id") or "").strip()
+        if not self.bot_client_id:
+            logger.warning(
+                "[BQBQ] 未配置 bot_client_id！上传图片、修改标签、购物车取回"
+                "都会因缺少凭证被后端拒绝（HTTP 401 未登录：缺少 client_id）。\n"
+                "        请在本插件配置里填写 bot_client_id，并在后端 "
+                "auth_granted_clients 表登记同一条（kind='bot'）。"
+            )
         self.enabled = bool(cfg.get("enabled", True))
         self.save_merged = bool(cfg.get("collect_merged", True))
         self.save_normal = bool(cfg.get("collect_normal", True))
